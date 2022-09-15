@@ -89,7 +89,7 @@ Each of the services can also be run via Quarkus Dev Mode simultaneously. For ea
 3. rest-heroes
 4. rest-villains
 
-open a terminal, cd into the project directory, and run ./mvnw quarkus:dev.
+open a terminal, cd into the project directory, and run ```./mvnw quarkus:dev```
 
 The following URLs will be available once everything is ready:
 
