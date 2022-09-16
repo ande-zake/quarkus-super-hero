@@ -1,4 +1,4 @@
-# Quarkus Superheroes Sample
+# Quarkus Superheroes Sample.
 
 ## Table of Contents
 - [Introduction](#introduction)
