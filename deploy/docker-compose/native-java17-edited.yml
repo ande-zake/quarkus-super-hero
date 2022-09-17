@@ -2,7 +2,8 @@ version: "3"
 services:
 
   fights-db:
-    image: mongo:5.0
+    #image: mongo:5.0 => error processor doesn't have AVX support
+    image: mongo:4.4.6
     container_name: fights-db
     ports:
       - "27017"
@@ -75,15 +76,14 @@ services:
   villains-db:
     image: postgres:14
     container_name: villains-db
-    build:
-      context: .
-      dockerfile: ./Dockerfilepostgres
     ports:
       - "5432"
     environment:
       POSTGRES_USER: superbad
       POSTGRES_PASSWORD: superbad
       POSTGRES_DB: villains_database
+    volumes:
+      - ../../rest-villains/deploy/db-init/initialize-tables.sql:/docker-entrypoint-initdb.d/1-init-tables.sql
 
   heroes-db:
     image: postgres:14
@@ -186,4 +186,4 @@ services:
       - "8080:8080"
     restart: on-failure
     environment:
-      API_BASE_URL: http://localhost:8082
+      API_BASE_URL: http://103.82.241.60:8082

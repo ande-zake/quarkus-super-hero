@@ -170,3 +170,9 @@ six spans in the `rest-fights` application, four spans in the `rest-heroes` appl
 Each trace also provides the total round-trip time of the request into the `/api/fights/randomfighters` endpoint within the `rest-fights` application and the total time spent within each unit of work.
 
 ![Jaeger Filters](images/jaeger-3-trace.png)
+
+
+### Troubleshoot
+
+1. error : image: mongo:5.0 => error processor doesn't have AVX support, solution : change to image : mongo: 4.4.6
+2. error : postgres => "'/docker-entrypoint-initdb.d/': Operation not permitted", solution (1) Downgrade to PostgreSQL 13-buster, i.e. Docker tag postgres:13.4-buster, as it seems 14 does not have a -buster equivalent, or (2) Upgrade current Docker you are running. From Docker version onwards 20.10.6, it seems to fix the issue.
