@@ -1,0 +1,3 @@
+FROM postgres:14
+COPY ./initialize-tables.sql /docker-entrypoint-initdb.d/1-init-tables.sql
+CMD ["docker-entrypoint.sh", "postgres"]  
